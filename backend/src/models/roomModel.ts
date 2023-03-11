@@ -1,17 +1,17 @@
-import { Schema, model } from "mongoose";
+import { Schema, Model, model } from "mongoose";
 
-interface ILobby {
+interface IRoom {
   name: string;
   players: string[];
   isGameStarted: boolean;
 }
 
-const lobbySchema = new Schema<ILobby>({
+const roomSchema = new Schema<IRoom>({
   name: { type: String, required: true },
   players: [{ type: String }],
   isGameStarted: { type: Boolean, default: false },
 });
 
-const Lobby = model<ILobby>("Lobby", lobbySchema);
+const Room: Model<IRoom> = model<IRoom>("Room", roomSchema);
 
-export { ILobby, Lobby };
+export { IRoom, Room };
